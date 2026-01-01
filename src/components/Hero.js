@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section style={styles.hero}>
-      <div style={styles.container}>
+      <div
+        style={{
+          ...styles.container,
+          gridTemplateColumns: isMobile ? "1fr" : "1.1fr 0.9fr",
+          textAlign: isMobile ? "center" : "left",
+        }}
+      >
         {/* LEFT CONTENT */}
         <div style={styles.left}>
-          <h1 style={styles.title}>
+          <h1
+            style={{
+              ...styles.title,
+              fontSize: isMobile ? "36px" : "48px",
+            }}
+          >
             Start Your Online <br /> Dropshipping Business
           </h1>
 
@@ -21,13 +40,24 @@ export default function Hero() {
           </p>
 
           {/* CTA BUTTONS */}
-          <div style={styles.buttons}>
+          <div
+            style={{
+              ...styles.buttons,
+              justifyContent: isMobile ? "center" : "flex-start",
+              flexWrap: "wrap",
+            }}
+          >
             <button style={styles.primaryBtn}>Get Started Today</button>
             <button style={styles.secondaryBtn}>📞 Call Us</button>
           </div>
 
           {/* FEATURE BADGES */}
-          <div style={styles.badges}>
+          <div
+            style={{
+              ...styles.badges,
+              justifyContent: isMobile ? "center" : "flex-start",
+            }}
+          >
             {[
               "Zero Inventory Needed",
               "100% Verified Suppliers",
@@ -43,7 +73,12 @@ export default function Hero() {
         </div>
 
         {/* RIGHT VISUAL */}
-        <div style={styles.right}>
+        <div
+          style={{
+            ...styles.right,
+            marginTop: isMobile ? "40px" : "0",
+          }}
+        >
           <div style={styles.visualBox}>
             <div style={{ ...styles.square, background: "#FFD400" }} />
             <div style={{ ...styles.square, background: "#FF7A18" }} />
@@ -68,7 +103,6 @@ const styles = {
     margin: "0 auto",
     padding: "0 20px",
     display: "grid",
-    gridTemplateColumns: "1.1fr 0.9fr",
     alignItems: "center",
     gap: "40px",
   },
@@ -78,7 +112,6 @@ const styles = {
   },
 
   title: {
-    fontSize: "48px",
     fontWeight: "800",
     lineHeight: "1.15",
     marginBottom: "14px",
@@ -96,6 +129,7 @@ const styles = {
     lineHeight: "1.7",
     color: "#cbd5e1",
     maxWidth: "520px",
+    margin: "0 auto",
   },
 
   buttons: {
@@ -142,7 +176,6 @@ const styles = {
     border: "1px solid rgba(255,255,255,0.18)",
     fontSize: "13px",
     color: "#e5e7eb",
-    userSelect: "none",
   },
 
   check: {
