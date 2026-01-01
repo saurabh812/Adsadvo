@@ -1,52 +1,56 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import "./WhyTrust.css";
 
 const WhyTrust = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
 
-  const stats = [
-    {
-      icon: "📈",
-      value: 100,
-      suffix: "%",
-      title: "Profit Margin",
-      description: "Earn exponential profits",
-      maxValue: 100,
-    },
-    {
-      icon: "👥",
-      value: 10000,
-      suffix: "+",
-      title: "Active Resellers",
-      description: "Join 10k+ successful online resellers",
-      maxValue: 10000,
-    },
-    {
-      icon: "🛍️",
-      value: 500000,
-      suffix: "+",
-      title: "Order Delivered",
-      description: "Over 5 lakh orders fulfilled with reliability",
-      maxValue: 500000,
-    },
-    {
-      icon: "🚚",
-      value: 100,
-      suffix: "%",
-      title: "Free Shipping",
-      description: "Free delivery to customers across India",
-      maxValue: 100,
-    },
-    {
-      icon: "🛡️",
-      value: 0,
-      suffix: "",
-      title: "Hidden Fees / Taxes",
-      description: "100% transparent pricing",
-      maxValue: 0,
-    },
-  ];
+  // ✅ useMemo to prevent re-creation on every render
+  const stats = useMemo(
+    () => [
+      {
+        icon: "📈",
+        value: 100,
+        suffix: "%",
+        title: "Profit Margin",
+        description: "Earn exponential profits",
+        maxValue: 100,
+      },
+      {
+        icon: "👥",
+        value: 10000,
+        suffix: "+",
+        title: "Active Resellers",
+        description: "Join 10k+ successful online resellers",
+        maxValue: 10000,
+      },
+      {
+        icon: "🛍️",
+        value: 500000,
+        suffix: "+",
+        title: "Order Delivered",
+        description: "Over 5 lakh orders fulfilled with reliability",
+        maxValue: 500000,
+      },
+      {
+        icon: "🚚",
+        value: 100,
+        suffix: "%",
+        title: "Free Shipping",
+        description: "Free delivery to customers across India",
+        maxValue: 100,
+      },
+      {
+        icon: "🛡️",
+        value: 0,
+        suffix: "",
+        title: "Hidden Fees / Taxes",
+        description: "100% transparent pricing",
+        maxValue: 0,
+      },
+    ],
+    []
+  );
 
   const [counters, setCounters] = useState(stats.map(() => 0));
 
@@ -118,8 +122,8 @@ const WhyTrust = () => {
 
         <p className="section-description">
           SeekhoBecho turns dreamers into business owners with ready-to-sell
-          products and step-by-step guidance. Our sellers never feel alone — we
-          handle the hard part so they can focus on earning.
+          products and step-by-step guidance. We handle the hard part so sellers
+          can focus on earning.
         </p>
 
         <div className="stats-grid">
