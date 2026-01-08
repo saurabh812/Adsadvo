@@ -1,57 +1,82 @@
 import React, { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <section style={styles.hero}>
+      {/* VIDEO BACKGROUND */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={styles.video}
+      >
+        <source src="/hero-bg.mp4" type="video/mp4" />
+      </video>
+
+      {/* DARK OVERLAY */}
+      <div style={styles.overlay} />
+
+      {/* CONTENT */}
       <div
         style={{
           ...styles.container,
-          gridTemplateColumns: isMobile ? "1fr" : "1.1fr 0.9fr",
+          gridTemplateColumns: isMobile ? "1fr" : "1.15fr 0.85fr",
           textAlign: isMobile ? "center" : "left",
         }}
       >
         {/* LEFT CONTENT */}
-        <div style={styles.left}>
-          <h1
-            style={{
-              ...styles.title,
-              fontSize: isMobile ? "36px" : "48px",
-            }}
-          >
+        <div>
+          <h1 style={styles.title}>
             Start Your Online <br /> Dropshipping Business
           </h1>
 
           <p style={styles.subtitle}>
-            With India’s Most Trusted Dropshipping Platform
+            India’s Most Trusted Dropshipping Platform
           </p>
 
-          <p style={styles.description}>
+          <p
+            style={{
+              ...styles.description,
+              margin: isMobile ? "0 auto" : "0",
+            }}
+          >
             Start selling online without inventory, warehouse, or complicated
             setups. We manage everything from product listing to delivery so you
             can scale your business confidently.
           </p>
 
-          {/* CTA BUTTONS */}
+          {/* BUTTONS */}
           <div
             style={{
               ...styles.buttons,
               justifyContent: isMobile ? "center" : "flex-start",
-              flexWrap: "wrap",
             }}
           >
-            <button style={styles.primaryBtn}>Get Started Today</button>
+            <button
+              style={styles.primaryBtn}
+              onMouseEnter={(e) =>
+                (e.target.style.transform = "translateY(-2px)")
+              }
+              onMouseLeave={(e) =>
+                (e.target.style.transform = "translateY(0)")
+              }
+            >
+              Get Started Today
+            </button>
+
             <button style={styles.secondaryBtn}>📞 Call Us</button>
           </div>
 
-          {/* FEATURE BADGES */}
+          {/* BADGES */}
           <div
             style={{
               ...styles.badges,
@@ -72,89 +97,100 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* RIGHT VISUAL */}
-        <div
-          style={{
-            ...styles.right,
-            marginTop: isMobile ? "40px" : "0",
-          }}
-        >
-          <div style={styles.visualBox}>
-            <div style={{ ...styles.square, background: "#FFD400" }} />
-            <div style={{ ...styles.square, background: "#FF7A18" }} />
-            <div style={{ ...styles.square, background: "#22D3EE" }} />
-          </div>
-        </div>
+        {/* RIGHT (OPTIONAL VISUAL / KEEP EMPTY FOR VIDEO FOCUS) */}
+        {!isMobile && (
+          <div />
+        )}
       </div>
     </section>
   );
 }
 
+/* ================= STYLES ================= */
+
 const styles = {
   hero: {
+    position: "relative",
     width: "100%",
+    minHeight: "100vh",
+    padding: "clamp(70px, 10vw, 120px) 0",
+    overflow: "hidden",
+  },
+
+  video: {
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    zIndex: -2,
+  },
+
+  overlay: {
+    position: "absolute",
+    inset: 0,
     background:
-      "radial-gradient(circle at top, #1e293b 0%, #020617 70%)",
-    padding: "90px 0",
+      "linear-gradient(to bottom, rgba(2,6,23,0.9), rgba(2,6,23,0.65))",
+    zIndex: -1,
   },
 
   container: {
     maxWidth: "1200px",
     margin: "0 auto",
-    padding: "0 20px",
+    padding: "0 clamp(16px, 4vw, 24px)",
     display: "grid",
     alignItems: "center",
-    gap: "40px",
-  },
-
-  left: {
+    gap: "clamp(32px, 6vw, 60px)",
     color: "#fff",
   },
 
   title: {
-    fontWeight: "800",
+    fontWeight: "900",
     lineHeight: "1.15",
     marginBottom: "14px",
+    fontSize: "clamp(32px, 5vw, 52px)",
   },
 
   subtitle: {
-    fontSize: "18px",
+    fontSize: "clamp(14px, 2.5vw, 18px)",
     fontWeight: "600",
     color: "#ff7a18",
-    marginBottom: "18px",
+    marginBottom: "14px",
   },
 
   description: {
-    fontSize: "15px",
+    fontSize: "clamp(14px, 2.8vw, 16px)",
     lineHeight: "1.7",
     color: "#cbd5e1",
     maxWidth: "520px",
-    margin: "0 auto",
   },
 
   buttons: {
     display: "flex",
     gap: "14px",
-    marginTop: "26px",
+    marginTop: "28px",
+    flexWrap: "wrap",
   },
 
   primaryBtn: {
-    background: "#ff7a18",
+    background: "linear-gradient(135deg, #ff7a18, #ff9a3c)",
     border: "none",
     color: "#fff",
-    padding: "12px 22px",
-    borderRadius: "8px",
+    padding: "14px 24px",
+    borderRadius: "10px",
     fontSize: "15px",
-    fontWeight: "600",
+    fontWeight: "700",
     cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 10px 30px rgba(255,122,24,0.35)",
   },
 
   secondaryBtn: {
-    background: "transparent",
-    border: "1px solid rgba(255,255,255,0.25)",
+    background: "rgba(255,255,255,0.05)",
+    border: "1px solid rgba(255,255,255,0.3)",
     color: "#fff",
-    padding: "12px 22px",
-    borderRadius: "8px",
+    padding: "14px 24px",
+    borderRadius: "10px",
     fontSize: "15px",
     cursor: "pointer",
   },
@@ -169,40 +205,18 @@ const styles = {
   badge: {
     display: "flex",
     alignItems: "center",
-    gap: "6px",
-    padding: "6px 12px",
+    gap: "8px",
+    padding: "8px 14px",
     borderRadius: "999px",
     background: "rgba(255,255,255,0.08)",
     border: "1px solid rgba(255,255,255,0.18)",
-    fontSize: "13px",
+    fontSize: "12.5px",
     color: "#e5e7eb",
+    whiteSpace: "nowrap",
   },
 
   check: {
     color: "#22c55e",
-    fontSize: "12px",
-  },
-
-  right: {
-    display: "flex",
-    justifyContent: "center",
-  },
-
-  visualBox: {
-    width: "280px",
-    height: "200px",
-    borderRadius: "16px",
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.12)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "14px",
-  },
-
-  square: {
-    width: "44px",
-    height: "44px",
-    borderRadius: "8px",
+    fontSize: "13px",
   },
 };

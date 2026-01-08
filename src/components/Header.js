@@ -8,36 +8,40 @@ const Header = () => {
       <div className="header-container">
 
         {/* LOGO */}
-        <div className="logo">
+        <Link to="/" className="logo">
           <div className="logo-icon">S</div>
           <span className="logo-text">SeekhoBecho</span>
-        </div>
+        </Link>
 
         {/* NAVIGATION */}
         <nav className="nav">
 
           {/* DROPDOWN */}
           <div className="nav-item dropdown">
-            <span>
+            <span className="dropdown-trigger">
               Dropshipping <span className="dropdown-arrow">▼</span>
             </span>
 
             <div className="dropdown-menu">
               <div className="dropdown-column">
 
-                {/* AMAZON */}
+                {/* AMAZON PARENT */}
                 <div className="dropdown-item amazon-parent">
                   <div className="dropdown-icon amazon-icon">a</div>
+
                   <div className="dropdown-content">
                     <div className="dropdown-title">Amazon</div>
                     <div className="dropdown-description">
                       Earn income online, no inventory required
                     </div>
                   </div>
+
                   <div className="dropdown-arrow-right">›</div>
 
+                  {/* AMAZON SUBMENU */}
                   <div className="amazon-submenu">
-                    <a href="#amazon-india" className="submenu-item">
+
+                    <Link to="/amazon-india" className="submenu-item">
                       <div className="dropdown-icon amazon-icon">a</div>
                       <div className="dropdown-content">
                         <div className="dropdown-title">Amazon India</div>
@@ -45,9 +49,9 @@ const Header = () => {
                           More profit, lower costs, happy customers
                         </div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#amazon-international" className="submenu-item">
+                    <Link to="/amazon-international" className="submenu-item">
                       <div className="dropdown-icon amazon-icon">a</div>
                       <div className="dropdown-content">
                         <div className="dropdown-title">
@@ -57,12 +61,13 @@ const Header = () => {
                           Earn income online, no experience required
                         </div>
                       </div>
-                    </a>
+                    </Link>
+
                   </div>
                 </div>
 
-                {/* OTHER DROPDOWN ITEMS */}
-                <a href="#flipkart" className="dropdown-item">
+                {/* FLIPKART */}
+                <Link to="/flipkart" className="dropdown-item">
                   <div className="dropdown-icon flipkart-icon">📦</div>
                   <div className="dropdown-content">
                     <div className="dropdown-title">Flipkart</div>
@@ -70,9 +75,10 @@ const Header = () => {
                       Everything you need to launch your store
                     </div>
                   </div>
-                </a>
+                </Link>
 
-                <a href="#meesho" className="dropdown-item">
+                {/* MEESHO */}
+                <Link to="/meesho" className="dropdown-item">
                   <div className="dropdown-icon meesho-icon">👨‍🍳</div>
                   <div className="dropdown-content">
                     <div className="dropdown-title">Meesho</div>
@@ -80,9 +86,10 @@ const Header = () => {
                       Top trending products made easy
                     </div>
                   </div>
-                </a>
+                </Link>
 
-                <a href="#ecom-website" className="dropdown-item">
+                {/* E-COM WEBSITE */}
+                <Link to="/ecom-website" className="dropdown-item">
                   <div className="dropdown-icon ecom-icon">🌐</div>
                   <div className="dropdown-content">
                     <div className="dropdown-title">E-Com Website</div>
@@ -90,25 +97,26 @@ const Header = () => {
                       Launch your business fast
                     </div>
                   </div>
-                </a>
+                </Link>
 
               </div>
             </div>
           </div>
 
-          {/* ROUTED LINKS */}
+          {/* MAIN ROUTES */}
           <Link to="/pricing" className="nav-item">Pricing</Link>
           <Link to="/about" className="nav-item">About Us</Link>
+          <Link to="/contact" className="nav-item">Contact Us</Link>
+          <Link to="/blog" className="nav-item">Blogs</Link>
 
-          {/* NORMAL LINKS */}
-          <a href="#contact" className="nav-item">Contact Us</a>
-          <a href="#blog" className="nav-item">Blogs</a>
         </nav>
 
         {/* ACTION BUTTONS */}
         <div className="header-actions">
           <button className="btn-signin">Sign In</button>
-          <button className="btn-get-started">Get Started</button>
+          <Link to="/pricing" className="btn-get-started">
+            Get Started
+          </Link>
         </div>
 
       </div>
