@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import heroVideo from "../assets/hero-bg.mp4"; // adjust path if needed
+import heroVideo from "../assets/hero-bg.mp4";
+
 
 export default function Hero() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
