@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="header">
       <div className="header-container">
 
         {/* LOGO */}
         <Link to="/" className="logo">
-          <div className="logo-icon">S</div>
+          <div className="logo-icon">A</div>
           <span className="logo-text">Adsadvo</span>
         </Link>
 
+        {/* MOBILE MENU TOGGLE */}
+        <button className="mobile-menu-toggle" onClick={toggleMenu}>
+          <span className={`hamburger ${isMenuOpen ? "open" : ""}`}></span>
+        </button>
+
         {/* NAVIGATION */}
-        <nav className="nav">
+        <nav className={`nav ${isMenuOpen ? "mobile-open" : ""}`}>
 
           {/* DROPDOWN */}
           <div className="nav-item dropdown">
@@ -41,7 +52,7 @@ const Header = () => {
                   {/* AMAZON SUBMENU */}
                   <div className="amazon-submenu">
 
-                    <Link to="/amazon-india" className="submenu-item">
+                    <Link to="/amazon-india" className="submenu-item" onClick={() => setIsMenuOpen(false)}>
                       <div className="dropdown-icon amazon-icon">a</div>
                       <div className="dropdown-content">
                         <div className="dropdown-title">Amazon India</div>
@@ -51,7 +62,7 @@ const Header = () => {
                       </div>
                     </Link>
 
-                    <Link to="/amazon-international" className="submenu-item">
+                    <Link to="/amazon-international" className="submenu-item" onClick={() => setIsMenuOpen(false)}>
                       <div className="dropdown-icon amazon-icon">a</div>
                       <div className="dropdown-content">
                         <div className="dropdown-title">
@@ -67,7 +78,7 @@ const Header = () => {
                 </div>
 
                 {/* FLIPKART */}
-                <Link to="/flipkart" className="dropdown-item">
+                <Link to="/flipkart" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                   <div className="dropdown-icon flipkart-icon">📦</div>
                   <div className="dropdown-content">
                     <div className="dropdown-title">Flipkart</div>
@@ -78,7 +89,7 @@ const Header = () => {
                 </Link>
 
                 {/* MEESHO */}
-                <Link to="/meesho" className="dropdown-item">
+                <Link to="/meesho" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                   <div className="dropdown-icon meesho-icon">👨‍🍳</div>
                   <div className="dropdown-content">
                     <div className="dropdown-title">Meesho</div>
@@ -89,7 +100,7 @@ const Header = () => {
                 </Link>
 
                 {/* E-COM WEBSITE */}
-                <Link to="/ecom-website" className="dropdown-item">
+                <Link to="/ecom-website" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                   <div className="dropdown-icon ecom-icon">🌐</div>
                   <div className="dropdown-content">
                     <div className="dropdown-title">E-Com Website</div>
@@ -104,14 +115,22 @@ const Header = () => {
           </div>
 
           {/* MAIN ROUTES */}
-          <Link to="/pricing" className="nav-item">Pricing</Link>
-          <Link to="/about" className="nav-item">About Us</Link>
-          <Link to="/contact" className="nav-item">Contact Us</Link>
-          <Link to="/blog" className="nav-item">Blogs</Link>
+          <Link to="/pricing" className="nav-item" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
+          <Link to="/about" className="nav-item" onClick={() => setIsMenuOpen(false)}>About Us</Link>
+          <Link to="/contact" className="nav-item" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+          <Link to="/blog" className="nav-item" onClick={() => setIsMenuOpen(false)}>Blogs</Link>
+
+          {/* MOBILE ACTIONS */}
+          <div className="mobile-actions">
+            <button className="btn-signin">Sign In</button>
+            <Link to="/pricing" className="btn-get-started" onClick={() => setIsMenuOpen(false)}>
+              Get Started
+            </Link>
+          </div>
 
         </nav>
 
-        {/* ACTION BUTTONS */}
+        {/* DESKTOP ACTION BUTTONS */}
         <div className="header-actions">
           <button className="btn-signin">Sign In</button>
           <Link to="/pricing" className="btn-get-started">
