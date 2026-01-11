@@ -19,123 +19,23 @@ const Header = () => {
           <span className="logo-text">Adsadvo</span>
         </Link>
 
-        {/* MOBILE MENU TOGGLE */}
-        <button className="mobile-menu-toggle" onClick={toggleMenu}>
-          <span className={`hamburger ${isMenuOpen ? "open" : ""}`}></span>
-        </button>
-
         {/* NAVIGATION */}
         <nav className={`nav ${isMenuOpen ? "mobile-open" : ""}`}>
+          {/* ... existing navigation links ... */}
+        </nav>
 
-          {/* DROPDOWN */}
-          <div className="nav-item dropdown">
-            <span className="dropdown-trigger">
-              Dropshipping <span className="dropdown-arrow">▼</span>
-            </span>
-
-            <div className="dropdown-menu">
-              <div className="dropdown-column">
-
-                {/* AMAZON PARENT */}
-                <div className="dropdown-item amazon-parent">
-                  <div className="dropdown-icon amazon-icon">a</div>
-
-                  <div className="dropdown-content">
-                    <div className="dropdown-title">Amazon</div>
-                    <div className="dropdown-description">
-                      Earn income online, no inventory required
-                    </div>
-                  </div>
-
-                  <div className="dropdown-arrow-right">›</div>
-
-                  {/* AMAZON SUBMENU */}
-                  <div className="amazon-submenu">
-
-                    <Link to="/amazon-india" className="submenu-item" onClick={() => setIsMenuOpen(false)}>
-                      <div className="dropdown-icon amazon-icon">a</div>
-                      <div className="dropdown-content">
-                        <div className="dropdown-title">Amazon India</div>
-                        <div className="dropdown-description">
-                          More profit, lower costs, happy customers
-                        </div>
-                      </div>
-                    </Link>
-
-                    <Link to="/amazon-international" className="submenu-item" onClick={() => setIsMenuOpen(false)}>
-                      <div className="dropdown-icon amazon-icon">a</div>
-                      <div className="dropdown-content">
-                        <div className="dropdown-title">
-                          Amazon International
-                        </div>
-                        <div className="dropdown-description">
-                          Earn income online, no experience required
-                        </div>
-                      </div>
-                    </Link>
-
-                  </div>
-                </div>
-
-                {/* FLIPKART */}
-                <Link to="/flipkart" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                  <div className="dropdown-icon flipkart-icon">📦</div>
-                  <div className="dropdown-content">
-                    <div className="dropdown-title">Flipkart</div>
-                    <div className="dropdown-description">
-                      Everything you need to launch your store
-                    </div>
-                  </div>
-                </Link>
-
-                {/* MEESHO */}
-                <Link to="/meesho" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                  <div className="dropdown-icon meesho-icon">👨‍🍳</div>
-                  <div className="dropdown-content">
-                    <div className="dropdown-title">Meesho</div>
-                    <div className="dropdown-description">
-                      Top trending products made easy
-                    </div>
-                  </div>
-                </Link>
-
-                {/* E-COM WEBSITE */}
-                <Link to="/ecom-website" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                  <div className="dropdown-icon ecom-icon">🌐</div>
-                  <div className="dropdown-content">
-                    <div className="dropdown-title">E-Com Website</div>
-                    <div className="dropdown-description">
-                      Launch your business fast
-                    </div>
-                  </div>
-                </Link>
-
-              </div>
-            </div>
-          </div>
-
-          {/* MAIN ROUTES */}
-          <Link to="/pricing" className="nav-item" onClick={() => setIsMenuOpen(false)}>Pricing</Link>
-          <Link to="/about" className="nav-item" onClick={() => setIsMenuOpen(false)}>About Us</Link>
-          <Link to="/contact" className="nav-item" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-          <Link to="/blog" className="nav-item" onClick={() => setIsMenuOpen(false)}>Blogs</Link>
-
-          {/* MOBILE ACTIONS */}
-          <div className="mobile-actions">
+        {/* ACTIONS & TOGGLE */}
+        <div className="header-right">
+          <div className="header-actions">
             <button className="btn-signin">Sign In</button>
-            <Link to="/pricing" className="btn-get-started" onClick={() => setIsMenuOpen(false)}>
+            <Link to="/pricing" className="btn-get-started">
               Get Started
             </Link>
           </div>
 
-        </nav>
-
-        {/* DESKTOP ACTION BUTTONS */}
-        <div className="header-actions">
-          <button className="btn-signin">Sign In</button>
-          <Link to="/pricing" className="btn-get-started">
-            Get Started
-          </Link>
+          <button className="mobile-menu-toggle" onClick={toggleMenu}>
+            <span className={`hamburger ${isMenuOpen ? "open" : ""}`}></span>
+          </button>
         </div>
 
       </div>
