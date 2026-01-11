@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import Dropshipping from "./pages/Dropshipping";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -34,6 +35,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
+<Route path="/dropshipping" element={<Dropshipping />} />
 
         {/* Amazon */}
         <Route path="/amazon-india" element={<AmazonIndia />} />
