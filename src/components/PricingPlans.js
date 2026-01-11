@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const PricingPlans = () => {
   const plans = [
@@ -64,11 +65,10 @@ const PricingPlans = () => {
 
   return (
     <>
-      {/* ================= STYLES ================= */}
       <style>{`
         .pricing-section {
-          padding: 90px 20px;
-          background: linear-gradient(180deg, #f9fafb, #ffffff);
+          padding: 100px 20px;
+          background: #f8fafc;
         }
 
         .pricing-container {
@@ -78,27 +78,26 @@ const PricingPlans = () => {
 
         .pricing-title {
           text-align: center;
-          font-size: 38px;
+          font-size: 42px;
           font-weight: 800;
-          color: #111;
-          margin-bottom: 10px;
+          color: #0f172a;
+          margin-bottom: 16px;
         }
 
         .pricing-subtitle {
           text-align: center;
-          font-size: 16px;
-          color: #666;
-          max-width: 760px;
-          margin: 0 auto 60px;
+          font-size: 18px;
+          color: #64748b;
+          max-width: 800px;
+          margin: 0 auto 80px;
           line-height: 1.6;
         }
 
-        /* ===== HORIZONTAL SCROLL ===== */
         .pricing-grid {
           display: flex;
           gap: 32px;
           overflow-x: auto;
-          padding-bottom: 20px;
+          padding: 20px 10px 40px;
           scroll-behavior: smooth;
         }
 
@@ -107,77 +106,69 @@ const PricingPlans = () => {
         }
 
         .pricing-grid::-webkit-scrollbar-thumb {
-          background: #ff6b35;
+          background: #ff7a18;
           border-radius: 10px;
         }
 
-        /* ===== CARD ===== */
         .pricing-card {
-          min-width: 320px;
-          max-width: 320px;
+          min-width: 340px;
           background: #ffffff;
-          border-radius: 20px;
-          padding: 34px;
-          box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+          border-radius: 24px;
+          padding: 40px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
           display: flex;
           flex-direction: column;
-          transition: all 0.35s ease;
           position: relative;
           flex-shrink: 0;
-        }
-
-        .pricing-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 22px 50px rgba(0,0,0,0.12);
+          border: 1px solid #e2e8f0;
         }
 
         .pricing-card.highlight {
-          border: 2px solid #ff6b35;
-          background: linear-gradient(180deg, #fff7f3, #ffffff);
+          border: 2px solid #ff7a18;
+          box-shadow: 0 20px 40px rgba(255, 122, 24, 0.1);
         }
 
-        /* ===== BADGE ===== */
         .badge {
           position: absolute;
           top: -16px;
           left: 50%;
           transform: translateX(-50%);
-          background: #ff6b35;
+          background: #ff7a18;
           color: #fff;
-          padding: 6px 18px;
-          border-radius: 30px;
-          font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 0.5px;
+          padding: 8px 24px;
+          border-radius: 100px;
+          font-size: 14px;
+          font-weight: 800;
+          letter-spacing: 0.05em;
+          box-shadow: 0 4px 10px rgba(255, 122, 24, 0.3);
         }
 
-        /* ===== CONTENT ===== */
         .plan-title {
-          font-size: 21px;
-          font-weight: 700;
-          color: #111;
+          font-size: 24px;
+          font-weight: 800;
+          color: #0f172a;
           margin-bottom: 12px;
         }
 
         .plan-price {
-          font-size: 30px;
-          font-weight: 800;
-          color: #ff6b35;
-          margin-bottom: 22px;
+          font-size: 36px;
+          font-weight: 900;
+          color: #ff7a18;
+          margin-bottom: 30px;
         }
 
         .plan-features {
           list-style: none;
           padding: 0;
-          margin: 0 0 28px;
+          margin: 0 0 32px;
           flex-grow: 1;
         }
 
         .plan-features li {
-          font-size: 15px;
-          color: #333;
-          margin-bottom: 12px;
-          padding-left: 26px;
+          font-size: 16px;
+          color: #475569;
+          margin-bottom: 16px;
+          padding-left: 32px;
           position: relative;
           line-height: 1.5;
         }
@@ -186,44 +177,93 @@ const PricingPlans = () => {
           content: "✓";
           position: absolute;
           left: 0;
-          color: #ff6b35;
-          font-weight: bold;
+          color: #22c55e;
+          font-weight: 900;
+          font-size: 18px;
         }
 
-        /* ===== BUTTON ===== */
         .plan-btn {
-          background: #ff6b35;
+          background: #ff7a18;
           color: #fff;
           border: none;
-          padding: 14px;
-          border-radius: 12px;
-          font-size: 15px;
-          font-weight: 700;
+          padding: 16px;
+          border-radius: 14px;
+          font-size: 16px;
+          font-weight: 800;
           cursor: pointer;
-          transition: all 0.25s ease;
+          box-shadow: 0 4px 10px rgba(255, 122, 24, 0.2);
         }
 
-        .plan-btn:hover {
-          background: #e55a2b;
-          transform: translateY(-2px);
-        }
-
-        /* ===== MOBILE ===== */
         @media (max-width: 768px) {
           .pricing-title {
-            font-size: 28px;
+            font-size: 32px;
           }
-
-          .pricing-section {
-            padding: 60px 15px;
+          .pricing-grid {
+            gap: 20px;
           }
-
           .pricing-card {
-            min-width: 100%;
-            max-width: 100%;
+            min-width: 300px;
+            padding: 30px;
           }
         }
       `}</style>
+
+      <section className="pricing-section" id="pricing">
+        <div className="pricing-container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="pricing-title">Our Pricing Plans</h2>
+            <p className="pricing-subtitle">
+              Transparent pricing with no hidden charges. Choose the plan that fits
+              your business goals and scale confidently with SeekhoBecho.
+            </p>
+          </motion.div>
+
+          <div className="pricing-grid">
+            {plans.map((plan, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -10 }}
+                className={`pricing-card ${
+                  plan.highlight ? "highlight" : ""
+                }`}
+              >
+                {plan.badge && <div className="badge">{plan.badge}</div>}
+
+                <h3 className="plan-title">{plan.title}</h3>
+                <div className="plan-price">{plan.price}</div>
+
+                <ul className="plan-features">
+                  {plan.features.map((feature, i) => (
+                    <li key={i}>{feature}</li>
+                  ))}
+                </ul>
+
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="plan-btn"
+                >
+                  Get Started
+                </motion.button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default PricingPlans;
 
       {/* ================= JSX ================= */}
       <section className="pricing-section" id="pricing">

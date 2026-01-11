@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
+import { motion } from "framer-motion";
 import "./WhyTrust.css";
 
 const WhyTrust = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
 
-  // ✅ useMemo to prevent re-creation on every render
   const stats = useMemo(
     () => [
       {
@@ -116,26 +116,41 @@ const WhyTrust = () => {
   return (
     <section className="why-trust" ref={sectionRef}>
       <div className="container">
-        <h2 className="section-title">
-          Why Sellers Trust <span className="highlight">SeekhoBecho</span>
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="section-title">
+            Why Sellers Trust <span className="highlight">SeekhoBecho</span>
+          </h2>
 
-        <p className="section-description">
-          SeekhoBecho turns dreamers into business owners with ready-to-sell
-          products and step-by-step guidance. We handle the hard part so sellers
-          can focus on earning.
-        </p>
+          <p className="section-description">
+            SeekhoBecho turns dreamers into business owners with ready-to-sell
+            products and step-by-step guidance. We handle the hard part so sellers
+            can focus on earning.
+          </p>
+        </motion.div>
 
         <div className="stats-grid">
           {stats.map((stat, index) => (
-            <div key={index} className="stat-card">
+            <motion.div 
+              key={index} 
+              className="stat-card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              whileHover={{ y: -10, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+            >
               <div className="stat-icon">{stat.icon}</div>
               <div className="stat-value">
                 {formatNumber(counters[index], stat.suffix)}
               </div>
               <h3 className="stat-title">{stat.title}</h3>
               <p className="stat-description">{stat.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
