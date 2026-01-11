@@ -219,7 +219,7 @@ const PricingPlans = () => {
             <h2 className="pricing-title">Our Pricing Plans</h2>
             <p className="pricing-subtitle">
               Transparent pricing with no hidden charges. Choose the plan that fits
-              your business goals and scale confidently with SeekhoBecho.
+              your business goals and scale confidently with Adsadvo.
             </p>
           </motion.div>
 

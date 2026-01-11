@@ -14,7 +14,7 @@ const TransformJourney = () => {
                 <div className="book-icon">📖</div>
                 <div className="logo-overlay">
                   <div className="logo-icon-small">S</div>
-                  <span className="logo-text-small">SeekhoBecho</span>
+                  <span className="logo-text-small">Adsadvo</span>
                 </div>
               </div>
             </div>
@@ -23,7 +23,7 @@ const TransformJourney = () => {
           <div className="journey-text">
             <h2 className="journey-title">Transform Your Amazon Dropshipping Journey</h2>
             <p className="journey-description">
-              Learn how SeekhoBecho helps new and experienced sellers scale quickly with trusted suppliers, optimized listings, and real expert support.
+              Learn how Adsadvo helps new and experienced sellers scale quickly with trusted suppliers, optimized listings, and real expert support.
             </p>
             
             <div className="journey-features">

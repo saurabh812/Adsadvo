@@ -10,7 +10,7 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           style={{ fontSize: "48px", fontWeight: "900", textAlign: "center", marginBottom: "40px", color: "#0f172a" }}
         >
-          About <span style={{ color: "#ff7a18" }}>SeekhoBecho</span>
+          About <span style={{ color: "#ff7a18" }}>Adsadvo</span>
         </motion.h1>
 
         <motion.div 
@@ -20,7 +20,7 @@ const About = () => {
           style={{ background: "#fff", padding: "40px", borderRadius: "24px", boxShadow: "0 10px 30px rgba(0,0,0,0.05)", border: "1px solid #e2e8f0" }}
         >
           <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#475569", marginBottom: "30px" }}>
-            SeekhoBecho is India's most trusted dropshipping platform, dedicated to turning aspiring entrepreneurs into successful business owners. We provide a comprehensive ecosystem that simplifies the complexities of e-commerce.
+            Adsadvo is India's most trusted dropshipping platform, dedicated to turning aspiring entrepreneurs into successful business owners. We provide a comprehensive ecosystem that simplifies the complexities of e-commerce.
           </p>
 
           <h2 style={{ fontSize: "28px", fontWeight: "800", color: "#0f172a", marginBottom: "20px" }}>Our Mission</h2>

@@ -10,7 +10,7 @@ const Header = () => {
         {/* LOGO */}
         <Link to="/" className="logo">
           <div className="logo-icon">S</div>
-          <span className="logo-text">SeekhoBecho</span>
+          <span className="logo-text">Adsadvo</span>
         </Link>
 
         {/* NAVIGATION */}

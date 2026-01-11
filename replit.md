@@ -1,7 +1,7 @@
-# SeekhoBecho
+# Adsadvo
 
 ## Overview
-SeekhoBecho is a React-based landing page for India's Most Trusted Dropshipping Platform. This is a frontend-only application built with Create React App.
+Adsadvo is a React-based landing page for India's Most Trusted Dropshipping Platform. This is a frontend-only application built with Create React App.
 
 ## Project Structure
 - `src/` - React source code

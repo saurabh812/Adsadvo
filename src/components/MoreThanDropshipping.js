@@ -149,7 +149,7 @@ const MoreThanDropshipping = () => {
               More Than Dropshipping <span>Your Growth Partner</span>
             </h2>
             <p>
-              SeekhoBecho gives you the complete business engine — high-margin
+              Adsadvo gives you the complete business engine — high-margin
               products, verified suppliers, automated fulfillment & expert
               support to scale like a real brand.
             </p>

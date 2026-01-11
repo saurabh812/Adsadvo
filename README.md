@@ -1,6 +1,6 @@
-# SeekhoBecho - React Landing Page
+# Adsadvo - React Landing Page
 
-A modern, responsive React landing page for SeekhoBecho, India's most trusted dropshipping platform.
+A modern, responsive React landing page for Adsadvo, India's most trusted dropshipping platform.
 
 ## Features
 
@@ -90,5 +90,5 @@ All components are modular and can be easily customized:
 
 ## License
 
-This project is created for SeekhoBecho.
+This project is created for Adsadvo.
 

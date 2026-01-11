@@ -59,7 +59,7 @@ export default function LatestStory() {
         <h2 style={styles.title}>Latest Story</h2>
         <p style={styles.subtitle}>
           Discover insights, strategies, and success stories from the
-          SeekhoBecho community.
+          Adsadvo community.
         </p>
 
         <div style={styles.carousel}>

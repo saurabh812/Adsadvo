@@ -92,7 +92,7 @@ const Testimonials = () => {
       title: 'WhatsApp Business Owner',
       image: 'https://i.pravatar.cc/150?img=32',
       rating: 5,
-      text: 'The WhatsApp mastery course changed everything for me. Now I manage multiple product catalogs and my sales have tripled. Thank you SeekhoBecho!'
+      text: 'The WhatsApp mastery course changed everything for me. Now I manage multiple product catalogs and my sales have tripled. Thank you Adsadvo!'
     },
     {
       name: 'Vikram Reddy',
@@ -113,7 +113,7 @@ const Testimonials = () => {
       title: 'Multi-Platform Seller',
       image: 'https://i.pravatar.cc/150?img=15',
       rating: 5,
-      text: 'Selling on Amazon, Flipkart, and Meesho simultaneously seemed impossible. But SeekhoBecho made it so simple. Highly recommend!'
+      text: 'Selling on Amazon, Flipkart, and Meesho simultaneously seemed impossible. But Adsadvo made it so simple. Highly recommend!'
     },
     {
       name: 'Divya Nair',
@@ -141,7 +141,7 @@ const Testimonials = () => {
       title: 'Business Consultant',
       image: 'https://i.pravatar.cc/150?img=20',
       rating: 5,
-      text: 'I recommend SeekhoBecho to all my clients. The transparent pricing, zero hidden fees, and excellent support make it the best choice.'
+      text: 'I recommend Adsadvo to all my clients. The transparent pricing, zero hidden fees, and excellent support make it the best choice.'
     },
     {
       name: 'Pooja Desai',
@@ -155,7 +155,7 @@ const Testimonials = () => {
       title: 'Retail Business Owner',
       image: 'https://i.pravatar.cc/150?img=16',
       rating: 5,
-      text: 'Expanded my retail business online with SeekhoBecho. The free shipping and delivery handling saved me so much time and money.'
+      text: 'Expanded my retail business online with Adsadvo. The free shipping and delivery handling saved me so much time and money.'
     },
     {
       name: 'Riya Kapoor',

@@ -6,8 +6,8 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'What is SeekhoBecho and how does it work?',
-      answer: 'SeekhoBecho is India\'s most trusted dropshipping platform that helps you start and grow your online business without inventory. We provide ready-to-sell products, verified suppliers, automated fulfillment, and expert support to help you scale your business confidently.'
+      question: 'What is Adsadvo and how does it work?',
+      answer: 'Adsadvo is India\'s most trusted dropshipping platform that helps you start and grow your online business without inventory. We provide ready-to-sell products, verified suppliers, automated fulfillment, and expert support to help you scale your business confidently.'
     },
     {
       question: 'Do I need inventory to start?',

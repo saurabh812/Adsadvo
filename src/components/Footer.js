@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="footer-section">
             <h3 className="footer-title">Quick Links</h3>
             <a href="#home" className="footer-link">Home</a>
-            <a href="#why" className="footer-link">Why SeekhoBecho</a>
+            <a href="#why" className="footer-link">Why Adsadvo</a>
             <a href="#pricing" className="footer-link">Pricing</a>
             <a href="#partners" className="footer-link">Partners</a>
             <a href="#contact" className="footer-link">Contact</a>
@@ -52,7 +52,7 @@ const Footer = () => {
           <div className="footer-bottom-content">
             <div className="footer-logo">
               <div className="logo-icon">S</div>
-              <span className="logo-text">SeekhoBecho</span>
+              <span className="logo-text">Adsadvo</span>
             </div>
 
             <div className="footer-social">
@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-copyright">
-            <p>© 2024 SeekhoBecho. All rights reserved.</p>
+            <p>© 2024 Adsadvo. All rights reserved.</p>
             <div className="footer-links">
               <a href="#privacy" className="footer-link-small">Privacy Policy</a>
               <a href="#terms" className="footer-link-small">Terms of Use</a>

@@ -5,7 +5,7 @@ const Blog = () => {
   const posts = [
     { title: "Scaling Your Dropshipping Brand in 2026", desc: "Discover the latest trends and strategies to scale your business exponentially.", date: "Jan 10, 2026" },
     { title: "Profitability Secrets for New Sellers", desc: "Learn how to optimize your margins and reduce operational costs effectively.", date: "Jan 05, 2026" },
-    { title: "Why SeekhoBecho is the #1 Platform", desc: "An in-depth look at our ecosystem and how it compares to traditional setups.", date: "Dec 28, 2025" },
+    { title: "Why Adsadvo is the #1 Platform", desc: "An in-depth look at our ecosystem and how it compares to traditional setups.", date: "Dec 28, 2025" },
   ];
 
   return (

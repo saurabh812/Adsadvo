@@ -123,11 +123,11 @@ const WhyTrust = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title">
-            Why Sellers Trust <span className="highlight">SeekhoBecho</span>
+            Why Sellers Trust <span className="highlight">Adsadvo</span>
           </h2>
 
           <p className="section-description">
-            SeekhoBecho turns dreamers into business owners with ready-to-sell
+            Adsadvo turns dreamers into business owners with ready-to-sell
             products and step-by-step guidance. We handle the hard part so sellers
             can focus on earning.
           </p>
