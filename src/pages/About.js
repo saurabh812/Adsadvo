@@ -1,60 +1,53 @@
+import React from "react";
+import { motion } from "framer-motion";
+
 const About = () => {
-  const styles = {
-    page: {
-      padding: "120px 20px",
-      background: "#020c1b",
-      color: "#fff",
-      fontFamily: "Poppins, sans-serif",
-    },
-    container: {
-      maxWidth: "1000px",
-      margin: "auto",
-    },
-    title: {
-      fontSize: "46px",
-      marginBottom: "20px",
-      textAlign: "center",
-    },
-    section: {
-      marginTop: "60px",
-    },
-    text: {
-      lineHeight: 1.8,
-      opacity: 0.85,
-      fontSize: "18px",
-    },
-  };
-
   return (
-    <section style={styles.page}>
-      <div style={styles.container}>
-        <h1 style={styles.title}>About AdsAdvo</h1>
+    <section className="section-padding" style={{ background: "#f8fafc", minHeight: "100vh" }}>
+      <div style={{ maxWidth: "1000px", margin: "auto" }}>
+        <motion.h1 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          style={{ fontSize: "48px", fontWeight: "900", textAlign: "center", marginBottom: "40px", color: "#0f172a" }}
+        >
+          About <span style={{ color: "#ff7a18" }}>SeekhoBecho</span>
+        </motion.h1>
 
-        <div style={styles.section}>
-          <p style={styles.text}>
-            AdsAdvo is a performance-driven digital advertising agency helping
-            brands scale through data-backed marketing strategies. We focus on
-            results, transparency, and long-term growth.
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          style={{ background: "#fff", padding: "40px", borderRadius: "24px", boxShadow: "0 10px 30px rgba(0,0,0,0.05)", border: "1px solid #e2e8f0" }}
+        >
+          <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#475569", marginBottom: "30px" }}>
+            SeekhoBecho is India's most trusted dropshipping platform, dedicated to turning aspiring entrepreneurs into successful business owners. We provide a comprehensive ecosystem that simplifies the complexities of e-commerce.
           </p>
-        </div>
 
-        <div style={styles.section}>
-          <h2>Our Mission</h2>
-          <p style={styles.text}>
-            To empower businesses with measurable, scalable, and ROI-focused
-            advertising solutions across digital platforms.
+          <h2 style={{ fontSize: "28px", fontWeight: "800", color: "#0f172a", marginBottom: "20px" }}>Our Mission</h2>
+          <p style={{ fontSize: "18px", lineHeight: "1.8", color: "#475569", marginBottom: "30px" }}>
+            To empower 1 million Indians to start and scale their own online businesses without the traditional barriers of inventory, warehousing, or technical expertise.
           </p>
-        </div>
 
-        <div style={styles.section}>
-          <h2>Why Choose AdsAdvo?</h2>
-          <ul style={styles.text}>
-            <li>✔ Performance-first campaigns</li>
-            <li>✔ Honest reporting & analytics</li>
-            <li>✔ Experienced ad strategists</li>
-            <li>✔ Growth-oriented mindset</li>
+          <h2 style={{ fontSize: "28px", fontWeight: "800", color: "#0f172a", marginBottom: "20px" }}>Why Choose Us?</h2>
+          <ul style={{ listStyle: "none", padding: 0 }}>
+            {[
+              "Verified high-margin products",
+              "Automated order fulfillment",
+              "Expert business mentorship",
+              "End-to-end logistics support"
+            ].map((item, i) => (
+              <motion.li 
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 + (i * 0.1) }}
+                style={{ fontSize: "18px", color: "#475569", marginBottom: "12px", display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <span style={{ color: "#22c55e", fontWeight: "bold" }}>✓</span> {item}
+              </motion.li>
+            ))}
           </ul>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
