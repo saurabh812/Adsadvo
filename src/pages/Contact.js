@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyVz2rUaGbPTRz253pRLPsBMbn5_jqsKdbBdYyuIDvHZb715VTkVm9bz5f4DQuWf4dAjg/exec";
+  "https://script.google.com/macros/s/AKfycbzLMTft9FzimeNv2uOgfoa0qClDaOYd8YZ0opfEwLTKl6jNJrw15IAwcbekziRQ-DPruA/exec";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -27,12 +27,14 @@ const ContactForm = () => {
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
+        mode: "no-cors", // ⭐ REQUIRED FOR GOOGLE APPS SCRIPT
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: formBody,
       });
 
+      // We cannot read response in no-cors, assume success
       setStatus("✅ Message sent successfully!");
       setFormData({
         name: "",
@@ -128,25 +130,21 @@ const styles = {
     flexDirection: "column",
     gap: "16px",
   },
-
   heading: {
     fontSize: "26px",
     fontWeight: "800",
     color: "#0f172a",
   },
-
   subheading: {
     fontSize: "14px",
     color: "#64748b",
     marginBottom: "10px",
   },
-
   grid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gap: "14px",
   },
-
   input: {
     padding: "14px 16px",
     borderRadius: "12px",
@@ -154,7 +152,6 @@ const styles = {
     fontSize: "14px",
     outline: "none",
   },
-
   textarea: {
     padding: "14px 16px",
     borderRadius: "12px",
@@ -162,7 +159,6 @@ const styles = {
     fontSize: "14px",
     resize: "none",
   },
-
   button: {
     marginTop: "10px",
     background: "linear-gradient(135deg,#3b82f6,#2563eb)",
@@ -174,7 +170,6 @@ const styles = {
     fontSize: "15px",
     cursor: "pointer",
   },
-
   status: {
     marginTop: "10px",
     fontWeight: "600",
