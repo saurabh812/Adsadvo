@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycby8J1XdRAe_m0CYNX_kMKQaFXfw81sUV_Jw793CyMsuq4J3jF7OIWrB-_hncRjw1aEJiw/exec";
+  "https://script.google.com/macros/s/AKfycbzPHd_SBPSxamXvkJewqH-Rl68O2qGIJwhAy5LxgbHzvtv6zYCvn12uAei_T3LTpjoCAQ/exec";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -19,36 +19,36 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
+  e.preventDefault();
+  setStatus("Sending...");
 
-    try {
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbzPHd_SBPSxamXvkJewqH-Rl68O2qGIJwhAy5LxgbHzvtv6zYCvn12uAei_T3LTpjoCAQ/exec",
+      {
         method: "POST",
+        mode: "no-cors",   // ⭐ IMPORTANT
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setStatus("✅ Message sent successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        setStatus("❌ Failed to send message");
       }
-    } catch (error) {
-      setStatus("❌ Network error. Try again.");
-    }
-  };
+    );
+
+    // no-cors does not allow reading response
+    setStatus("✅ Message sent successfully!");
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      message: "",
+    });
+  } catch (error) {
+    setStatus("❌ Network error. Try again.");
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit} style={styles.form}>
