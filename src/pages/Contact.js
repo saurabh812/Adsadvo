@@ -113,4 +113,73 @@ const ContactForm = () => {
   );
 };
 
+
+
+
+
+const styles = {
+  form: {
+    background: "#ffffff",
+    padding: "40px",
+    borderRadius: "24px",
+    boxShadow: "0 30px 60px rgba(0,0,0,0.08)",
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+  },
+
+  heading: {
+    fontSize: "26px",
+    fontWeight: "800",
+    color: "#0f172a",
+  },
+
+  subheading: {
+    fontSize: "14px",
+    color: "#64748b",
+    marginBottom: "10px",
+  },
+
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "14px",
+  },
+
+  input: {
+    padding: "14px 16px",
+    borderRadius: "12px",
+    border: "1px solid #e2e8f0",
+    fontSize: "14px",
+    outline: "none",
+  },
+
+  textarea: {
+    padding: "14px 16px",
+    borderRadius: "12px",
+    border: "1px solid #e2e8f0",
+    fontSize: "14px",
+    resize: "none",
+  },
+
+  button: {
+    marginTop: "10px",
+    background: "linear-gradient(135deg,#3b82f6,#2563eb)",
+    color: "#fff",
+    padding: "16px",
+    borderRadius: "14px",
+    border: "none",
+    fontWeight: "700",
+    fontSize: "15px",
+    cursor: "pointer",
+  },
+
+  status: {
+    marginTop: "10px",
+    fontWeight: "600",
+    fontSize: "14px",
+  },
+};
+
+
 export default ContactForm;
