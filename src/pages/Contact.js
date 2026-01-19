@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzPHd_SBPSxamXvkJewqH-Rl68O2qGIJwhAy5LxgbHzvtv6zYCvn12uAei_T3LTpjoCAQ/exec";
+  "https://script.google.com/macros/s/AKfycbyVz2rUaGbPTRz253pRLPsBMbn5_jqsKdbBdYyuIDvHZb715VTkVm9bz5f4DQuWf4dAjg/exec";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -22,14 +22,15 @@ const ContactForm = () => {
     e.preventDefault();
     setStatus("Sending...");
 
+    const formBody = new URLSearchParams(formData).toString();
+
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors", // required for Google Apps Script
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify(formData),
+        body: formBody,
       });
 
       setStatus("✅ Message sent successfully!");
@@ -113,9 +114,9 @@ const ContactForm = () => {
   );
 };
 
+export default ContactForm;
 
-
-
+/* ================= STYLES ================= */
 
 const styles = {
   form: {
@@ -180,6 +181,3 @@ const styles = {
     fontSize: "14px",
   },
 };
-
-
-export default ContactForm;
