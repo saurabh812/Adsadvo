@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import PricingSection from "../components/PricingSection";
-import ContactForm from "../components/ContactForm";
+import PricingPlans from '../components/PricingPlans';
+// import PricingSection from "../components/PricingSection";
+// import ContactForm from "../components/ContactForm";
 
 const AmazonIndia = () => {
   return (
@@ -25,7 +26,15 @@ const AmazonIndia = () => {
               dropshipping & branding solutions.
             </p>
 
-            <button style={styles.heroButton}>Get Started</button>
+            <button
+              style={styles.heroButton}
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+            >
+              Get Started
+            </button>
+
           </motion.div>
         </section>
 
@@ -60,13 +69,11 @@ const AmazonIndia = () => {
         </section>
 
         {/* ================= PRICING ================= */}
-        <PricingSection
-          title="Amazon Pricing Plans"
-          highlight="amazon"
-        />
+   
+   <PricingPlans />
 
         {/* ================= CONTACT ================= */}
-        <ContactForm defaultService="Amazon" />
+        {/* <ContactForm defaultService="Amazon" /> */}
       </main>
     </div>
   );

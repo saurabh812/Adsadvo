@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import PricingSection from "../components/PricingSection";
-import ContactForm from "../components/ContactForm";
+// import PricingSection from "../components/PricingSection";
+// import ContactForm from "../components/ContactForm";
+import PricingPlans from '../components/PricingPlans';
 
 const EcommerceWebsite = () => {
   return (
@@ -25,7 +26,15 @@ const EcommerceWebsite = () => {
               automation, and dropshipping support.
             </p>
 
-            <button style={styles.heroButton}>Launch Your Store</button>
+            <button
+              style={styles.heroButton}
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+            >
+              Launch Your Store
+            </button>
+
           </motion.div>
         </section>
 
@@ -60,13 +69,15 @@ const EcommerceWebsite = () => {
         </section>
 
         {/* ================= PRICING ================= */}
-        <PricingSection
+        {/* <PricingSection
           title="E-commerce Website Pricing Plans"
           highlight="website"
-        />
+        /> */}
+
+          <PricingPlans />
 
         {/* ================= CONTACT ================= */}
-        <ContactForm defaultService="E-commerce Website" />
+        {/* <ContactForm defaultService="E-commerce Website" /> */}
       </main>
     </div>
   );

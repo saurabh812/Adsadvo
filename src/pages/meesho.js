@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import PricingSection from "../components/PricingSection";
-import ContactForm from "../components/ContactForm";
+// import PricingSection from "../components/PricingSection";
+import PricingPlans from '../components/PricingPlans';
+// import ContactForm from "../components/ContactForm";
 
 const MeeshoDropshippingPage = () => {
   return (
@@ -25,7 +26,15 @@ const MeeshoDropshippingPage = () => {
               zero inventory investment.
             </p>
 
-            <button style={styles.heroButton}>Get Started</button>
+            <button
+              style={styles.heroButton}
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+            >
+              Get Started
+            </button>
+
           </motion.div>
         </section>
 
@@ -60,13 +69,14 @@ const MeeshoDropshippingPage = () => {
         </section>
 
         {/* ================= PRICING ================= */}
-        <PricingSection
+        {/* <PricingSection
           title="Meesho Pricing Plans"
           highlight="meesho"
-        />
+        /> */}
+         <PricingPlans />
 
         {/* ================= CONTACT ================= */}
-        <ContactForm defaultService="Meesho" />
+        {/* <ContactForm defaultService="Meesho" /> */}
       </main>
     </div>
   );

@@ -1,7 +1,8 @@
 import React from "react";
+import PricingPlans from '../components/PricingPlans';
 import { motion } from "framer-motion";
-import PricingSection from "../components/PricingSection";
-import ContactForm from "../components/ContactForm";
+// import PricingSection from "../components/PricingSection";
+// import ContactForm from "../components/ContactForm";
 
 const FlipkartDropshippingPage = () => {
   return (
@@ -25,7 +26,15 @@ const FlipkartDropshippingPage = () => {
               marketplace with zero inventory.
             </p>
 
-            <button style={styles.heroButton}>Get Started</button>
+            <button
+              style={styles.heroButton}
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+            >
+              Get Started
+            </button>
+
           </motion.div>
         </section>
 
@@ -60,13 +69,14 @@ const FlipkartDropshippingPage = () => {
         </section>
 
         {/* ================= PRICING ================= */}
-        <PricingSection
+        {/* <PricingSection
           title="Flipkart Pricing Plans"
           highlight="flipkart"
-        />
+        /> */}
+        <PricingPlans />
 
         {/* ================= CONTACT ================= */}
-        <ContactForm defaultService="Flipkart" />
+        {/* <ContactForm defaultService="Flipkart" /> */}
       </main>
     </div>
   );

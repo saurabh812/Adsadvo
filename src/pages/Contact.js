@@ -92,9 +92,9 @@ const ContactForm = () => {
         style={styles.input}
       >
         <option value="">Select Service</option>
-        <option value="Amazon">Amazon Dropshipping</option>
-        <option value="Shopify">Shopify Store</option>
-        <option value="Flipkart">Flipkart Setup</option>
+        <option value="Amazon">Amazon </option>
+        <option value="Shopify"> E-commerce Website</option>
+        {/* <option value="Flipkart">Flipkart Setup</option> */}
       </select>
 
       <textarea

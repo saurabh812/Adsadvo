@@ -103,20 +103,39 @@ export default function Hero() {
               justifyContent: isMobile ? "center" : "flex-start",
             }}
           >
+
+
+
+            
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(255, 122, 24, 0.3)" }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 10px 20px rgba(255, 122, 24, 0.3)",
+              }}
               whileTap={{ scale: 0.95 }}
               style={styles.primaryBtn}
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
             >
               Get Started Today
             </motion.button>
+
+
+
+
+
             <motion.button
               whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.1)" }}
               whileTap={{ scale: 0.95 }}
               style={styles.secondaryBtn}
+              onClick={() => {
+                window.location.href = "tel:+917769803579";
+              }}
             >
               📞 Call Us
             </motion.button>
+
           </motion.div>
 
           <motion.div

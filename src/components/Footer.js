@@ -8,10 +8,10 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <h3 className="footer-title">Contact Us</h3>
-            <p className="footer-text">123 Business Street</p>
-            <p className="footer-text">New Delhi, India 110001</p>
-            <p className="footer-text">📞 +91 1234567890</p>
-            <p className="footer-text">✉️ info@seekhobecho.com</p>
+            <p className="footer-text">Pan card club road , Ambrosia galaxy</p>
+            <p className="footer-text">Pune, Maharashtra 411045</p>
+            <p className="footer-text">📞 +91 7769803579</p>
+            <p className="footer-text">✉️ suport@adsadvo.com</p>
           </div>
 
           <div className="footer-section">

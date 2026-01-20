@@ -1,50 +1,69 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const PricingPlans = () => {
+  const sliderRef = useRef(null);
+  const navigate = useNavigate();
+
+  const scroll = (direction) => {
+    const cardWidth = 352; // card + gap
+    if (!sliderRef.current) return;
+
+    sliderRef.current.scrollBy({
+      left: direction === "left" ? -cardWidth : cardWidth,
+      behavior: "smooth",
+    });
+  };
+
   const plans = [
     {
       title: "CSV Product Package",
       price: "₹699",
+      desc: "Perfect for beginners testing product ideas",
       features: [
         "Ready-to-use CSV file",
-        "Trending product list",
-        "Easy upload on seller panels / websites",
+        "Trending & validated products",
+        "Easy upload on seller panels",
+        "Beginner-friendly format",
       ],
     },
     {
       title: "Amazon Starter Package",
       price: "₹4,999",
+      desc: "Launch your Amazon journey with confidence",
       features: [
         "Amazon seller account creation",
-        "Product listing",
+        "Professional product listing",
         "2 months free ads support",
-        "Basic onboarding guidance",
+        "Step-by-step onboarding",
       ],
     },
     {
       title: "E-commerce Website Package",
       price: "₹35,000",
       highlight: true,
+      badge: "MOST POPULAR",
+      desc: "Everything you need to build & sell online",
       features: [
-        "Shopify website setup",
-        "1-year domain",
-        "2 months free ads management",
+        "Shopify premium website setup",
+        "1-year domain + SSL",
         "₹3,000 ads credit",
         "4 bill pay integrations",
-        "80 product listings per month",
+        "80 product listings/month",
         "Complete website handover",
       ],
     },
     {
       title: "Amazon + Website Combo",
       price: "₹37,000",
+      desc: "Maximum reach with dual-channel selling",
       features: [
         "Amazon seller account setup",
         "Amazon product listing",
         "Shopify website setup",
-        "Combined Amazon + Website support",
-        "Best value combo package",
+        "Unified Amazon + Website support",
+        "High ROI combo solution",
       ],
     },
     {
@@ -52,12 +71,12 @@ const PricingPlans = () => {
       price: "₹1,50,000",
       highlight: true,
       badge: "WHITE LABEL",
+      desc: "Build your own brand, we run the backend",
       features: [
-        "Complete white labeling solution",
-        "Your own brand name & identity",
-        "Logo, brand guidelines & positioning",
-        "Ready-to-sell branded setup",
-        "Backend operations handled by us",
+        "Complete white-label branding",
+        "Custom logo & brand identity",
+        "Ready-to-sell brand setup",
+        "Operations handled by experts",
         "You focus only on sales & scaling",
       ],
     },
@@ -67,195 +86,235 @@ const PricingPlans = () => {
     <>
       <style>{`
         .pricing-section {
-          padding: 100px 20px;
-          background: #f8fafc;
+          padding: 120px 20px;
+          background: radial-gradient(circle at top, #fff7ed, #f8fafc);
         }
 
         .pricing-container {
           max-width: 1400px;
-          margin: 0 auto;
+          margin: auto;
         }
 
         .pricing-title {
           text-align: center;
-          font-size: 42px;
-          font-weight: 800;
+          font-size: 44px;
+          font-weight: 900;
           color: #0f172a;
-          margin-bottom: 16px;
         }
 
         .pricing-subtitle {
           text-align: center;
-          font-size: 18px;
           color: #64748b;
-          max-width: 800px;
-          margin: 0 auto 80px;
-          line-height: 1.6;
+          margin-bottom: 80px;
         }
 
-        .pricing-grid {
+        .pricing-slider-outer {
+          position: relative;
+          max-width: 1300px;
+          margin: auto;
+        }
+
+        .pricing-slider-wrapper {
+          overflow-x: auto;
+          overflow-y: visible;
+          scrollbar-width: none;
+        }
+
+        .pricing-slider-wrapper::-webkit-scrollbar {
+          display: none;
+        }
+
+        .pricing-slider {
           display: flex;
           gap: 32px;
-          overflow-x: auto;
-          padding: 20px 10px 40px;
-          scroll-behavior: smooth;
-        }
-
-        .pricing-grid::-webkit-scrollbar {
-          height: 8px;
-        }
-
-        .pricing-grid::-webkit-scrollbar-thumb {
-          background: #ff7a18;
-          border-radius: 10px;
+          padding: 20px 0;
         }
 
         .pricing-card {
-          min-width: 340px;
-          background: #ffffff;
-          border-radius: 24px;
-          padding: 40px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+          min-width: 320px;
+          max-width: 320px;
+          background: #fff;
+          border-radius: 28px;
+          padding: 44px;
+          border: 1px solid #e5e7eb;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.06);
           display: flex;
           flex-direction: column;
           position: relative;
-          flex-shrink: 0;
-          border: 1px solid #e2e8f0;
         }
 
         .pricing-card.highlight {
           border: 2px solid #ff7a18;
-          box-shadow: 0 20px 40px rgba(255, 122, 24, 0.1);
+          box-shadow: 0 25px 60px rgba(255,122,24,0.25);
         }
 
         .badge {
           position: absolute;
-          top: -16px;
+          top: -18px;
           left: 50%;
           transform: translateX(-50%);
-          background: #ff7a18;
-          color: #fff;
-          padding: 8px 24px;
-          border-radius: 100px;
-          font-size: 14px;
-          font-weight: 800;
-          letter-spacing: 0.05em;
-          box-shadow: 0 4px 10px rgba(255, 122, 24, 0.3);
+          background: linear-gradient(135deg, #ff7a18, #ff9f1c);
+          color: white;
+          padding: 8px 22px;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 900;
+          z-index: 20;
         }
 
         .plan-title {
-          font-size: 24px;
-          font-weight: 800;
-          color: #0f172a;
-          margin-bottom: 12px;
+          font-size: 22px;
+          font-weight: 900;
+          margin-bottom: 6px;
+        }
+
+        .plan-desc {
+          font-size: 14px;
+          color: #64748b;
+          margin-bottom: 20px;
         }
 
         .plan-price {
-          font-size: 36px;
+          font-size: 34px;
           font-weight: 900;
           color: #ff7a18;
-          margin-bottom: 30px;
+          margin-bottom: 26px;
         }
 
         .plan-features {
           list-style: none;
           padding: 0;
-          margin: 0 0 32px;
+          margin-bottom: 30px;
           flex-grow: 1;
         }
 
         .plan-features li {
-          font-size: 16px;
-          color: #475569;
-          margin-bottom: 16px;
-          padding-left: 32px;
+          padding-left: 28px;
           position: relative;
-          line-height: 1.5;
+          margin-bottom: 14px;
         }
 
         .plan-features li::before {
-          content: "✓";
+          content: "✔";
           position: absolute;
           left: 0;
           color: #22c55e;
           font-weight: 900;
-          font-size: 18px;
         }
 
+        /* ANIMATED CTA BUTTON */
         .plan-btn {
-          background: #ff7a18;
-          color: #fff;
+          position: relative;
+          overflow: hidden;
+          background: linear-gradient(135deg, #ff7a18, #ff9f1c);
+          color: white;
           border: none;
-          padding: 16px;
+          padding: 14px;
           border-radius: 14px;
-          font-size: 16px;
-          font-weight: 800;
+          font-weight: 900;
           cursor: pointer;
-          box-shadow: 0 4px 10px rgba(255, 122, 24, 0.2);
+          box-shadow: 0 10px 25px rgba(255, 122, 24, 0.35);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
+
+        .plan-btn::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -120%;
+          width: 120%;
+          height: 100%;
+          background: linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.4),
+            transparent
+          );
+          transition: left 0.6s ease;
+        }
+
+        .plan-btn:hover::before {
+          left: 120%;
+        }
+
+        .plan-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 16px 35px rgba(255, 122, 24, 0.5);
+        }
+
+        .nav-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: #0f172a;
+          color: white;
+          border: none;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 22px;
+          z-index: 30;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn.left { left: -70px; }
+        .nav-btn.right { right: -70px; }
 
         @media (max-width: 768px) {
-          .pricing-title {
-            font-size: 32px;
-          }
-          .pricing-grid {
-            gap: 20px;
-          }
-          .pricing-card {
-            min-width: 300px;
-            padding: 30px;
-          }
+          .nav-btn { display: none; }
         }
       `}</style>
 
       <section className="pricing-section" id="pricing">
         <div className="pricing-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="pricing-title">Our Pricing Plans</h2>
-            <p className="pricing-subtitle">
-              Transparent pricing with no hidden charges. Choose the plan that fits
-              your business goals and scale confidently with Adsadvo.
-            </p>
-          </motion.div>
+          <h2 className="pricing-title">Powerful Pricing for Every Stage</h2>
+          <p className="pricing-subtitle">
+            Choose the plan that fits your business and scale with confidence.
+          </p>
 
-          <div className="pricing-grid">
-            {plans.map((plan, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -10 }}
-                className={`pricing-card ${
-                  plan.highlight ? "highlight" : ""
-                }`}
-              >
-                {plan.badge && <div className="badge">{plan.badge}</div>}
+          <div className="pricing-slider-outer">
+            <button className="nav-btn left" onClick={() => scroll("left")}>
+              ‹
+            </button>
 
-                <h3 className="plan-title">{plan.title}</h3>
-                <div className="plan-price">{plan.price}</div>
+            <div className="pricing-slider-wrapper" ref={sliderRef}>
+              <div className="pricing-slider">
+                {plans.map((plan, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ y: -10 }}
+                    className={`pricing-card ${plan.highlight ? "highlight" : ""}`}
+                  >
+                    {plan.badge && <div className="badge">{plan.badge}</div>}
 
-                <ul className="plan-features">
-                  {plan.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
-                  ))}
-                </ul>
+                    <h3 className="plan-title">{plan.title}</h3>
+                    <p className="plan-desc">{plan.desc}</p>
+                    <div className="plan-price">{plan.price}</div>
 
-                <motion.button 
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="plan-btn"
-                >
-                  Get Started
-                </motion.button>
-              </motion.div>
-            ))}
+                    <ul className="plan-features">
+                      {plan.features.map((f, i) => (
+                        <li key={i}>{f}</li>
+                      ))}
+                    </ul>
+
+                    <motion.button
+                      className="plan-btn"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      onClick={() => navigate("/contact")}
+                    >
+                      Get Started Now
+                    </motion.button>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <button className="nav-btn right" onClick={() => scroll("right")}>
+              ›
+            </button>
           </div>
         </div>
       </section>
